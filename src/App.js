@@ -17,7 +17,7 @@ class App extends Component {
     const getWeather = async () => {
 
       // add await before make a call 
-      const api_call = await fetch(`api.openweathermap.org/data/2.5/forecast?q=London,uk&APPID=${API_KEY}`);
+      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=London,uk&APPID=${API_KEY}`);
 
       // handle response using json() method to turn response into JSON
       const response = await api_call.json();
