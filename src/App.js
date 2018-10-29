@@ -54,7 +54,14 @@ class App extends Component {
       
         <Titles />
         <Form />
-        <Weather />
+        <Weather 
+          city={this.state.city}
+          country={this.state.country}
+          temperture={this.state.temperture}
+          humidity={this.state.humidity}
+          condition={this.state.condition}
+          wind={this.state.wind}
+        />
       </div>
     );
   }
