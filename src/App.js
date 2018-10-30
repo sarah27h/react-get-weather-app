@@ -19,6 +19,11 @@ class App extends Component {
     wind: [undefined,undefined]
   }
 
+  //to get location from user inputs
+  getLocations = (city, country) => {
+    console.log(city, country);
+  } 
+
   componentDidMount() {
 
     // use async await approche to fetch data from openweathermap API
@@ -44,7 +49,7 @@ class App extends Component {
     }
 
     getWeather();
-    
+   
   }
 
 
@@ -53,7 +58,7 @@ class App extends Component {
       <div className="App">
       
         <Titles />
-        <Form />
+        <Form onSubmit={this.getLocations} />
         <Weather 
           city={this.state.city}
           country={this.state.country}
