@@ -52,7 +52,8 @@ class App extends Component {
     });
   }
 
-  componentDidUpdate(prevState) {
+  // adding prevProps parameter corrected the multiple call issue
+  componentDidUpdate(prevProps, prevState) {
     //a network request may not be necessary if the state have not changed
     if (this.state.cityInput !== prevState.cityInput && this.state.countryInput !== prevState.countryInput) {
       console.log('App componentDidUpdate');
