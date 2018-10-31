@@ -30,6 +30,38 @@ class App extends Component {
     
   }
 
+  // use - async await - approche to fetch data from openweathermap API
+  // add async before our function
+  fetchWeather = async (city, country) => {
+    // add await before make a call
+    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&APPID=${API_KEY}`);
+
+    // handle response using json() method to turn response into JSON
+    const response = await api_call.json();
+    console.log(response);
+    console.log(city, country);
+
+    // update weather state after fetching data
+    this.setState( {
+      city: response.city.name,
+      country: response.city.country,
+      temperture : response.list[0].main.temp,
+      humidity: response.list[0].main.humidity,
+      condition: response.list[0].weather[0].description,
+      wind: [response.list[0].wind.speed, response.list[0].wind.deg]
+    });
+  }
+
+  componentDidUpdate(prevState) {
+    //a network request may not be necessary if the state have not changed
+    if (this.state.cityInput !== prevState.cityInput && this.state.countryInput !== prevState.countryInput) {
+      console.log('App componentDidUpdate');
+      console.log(this.state.cityInput, prevState.cityInput);
+    
+      this.fetchWeather(this.state.cityInput, this.state.countryInput);
+    }
+  }
+
   render() {
     console.log('App render');
     return (
