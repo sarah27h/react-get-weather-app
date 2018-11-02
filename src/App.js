@@ -18,7 +18,8 @@ class App extends Component {
     temperture: undefined,
     humidity: undefined,
     condition: undefined,
-    wind: [undefined,undefined]
+    wind: [undefined,undefined],
+    error: undefined
   }
 
   //to get location from <Form /> (user inputs)
@@ -29,33 +30,87 @@ class App extends Component {
     })
     
   }
-
+  
   // use - async await - approche to fetch data from openweathermap API
   // add async before our function
   fetchWeather = async (city, country) => {
-    // add await before make a call
-    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&APPID=${API_KEY}`);
+    try {
+      // add await before make a call
+      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=metric&APPID=${API_KEY}`);
 
-    // handle response using json() method to turn response into JSON
-    const response = await api_call.json();
-    console.log(response);
-    console.log(city, country);
+      // handle response using json() method to turn response into JSON
+      const response = await api_call.json();
+      console.log(response);
+      console.log(city, country);
+      console.log(response.message);
+      
+      // handle case: data is fecthed correctly
+      if (response.cod === "200") {
+        // update weather state after fetching data
+        this.setState( {
+          city: response.city.name,
+          country: response.city.country,
+          temperture : response.list[0].main.temp,
+          humidity: response.list[0].main.humidity,
+          condition: response.list[0].weather[0].description,
+          wind: [response.list[0].wind.speed, response.list[0].wind.deg],
+          error: undefined
+        });
+        // handle case: user enter incorrect location
+        // simulate case: enter wrong locations
+       } else if (response.cod === "404") {
+          this.setState({
+            error : `${response.message}, please check location inputs again`,
+            cityInput: undefined,
+            countryInput: undefined,
+            city: undefined,
+            country: undefined,
+            temperture: undefined,
+            humidity: undefined,
+            condition: undefined,
+            wind: [undefined,undefined]
+           });
 
-    // update weather state after fetching data
-    this.setState( {
-      city: response.city.name,
-      country: response.city.country,
-      temperture : response.list[0].main.temp,
-      humidity: response.list[0].main.humidity,
-      condition: response.list[0].weather[0].description,
-      wind: [response.list[0].wind.speed, response.list[0].wind.deg]
-    });
-  }
+        } else {
+        // handle case: if invalid API openweathermap key (Unauthorized error)
+        // if (response.cod === "401")
+        // simulate case: delete from API key
+          this.setState({
+            error : response.message,
+            cityInput: undefined,
+            countryInput: undefined,
+            city: undefined,
+            country: undefined,
+            temperture: undefined,
+            humidity: undefined,
+            condition: undefined,
+            wind: [undefined,undefined]
+          });
+          
+        }
+
+    //handle case: if fetch request fails due to network issues or fetched url incorrect
+    // User is offline, DNS troubles, network errors
+    // simulate case: disconnect internet or delete anything from fetched url
+    } catch (error) {
+      this.setState({
+        cityInput: undefined,
+        countryInput: undefined,
+        city: undefined,
+        country: undefined,
+        temperture: undefined,
+        humidity: undefined,
+        condition: undefined,
+        wind: [undefined,undefined],
+        error : 'Error: something went wrong with network' });
+    }
+  
+  } 
 
   // adding prevProps parameter corrected the multiple call issue
   componentDidUpdate(prevProps, prevState) {
-    //a network request may not be necessary if the state have not changed
-    if (this.state.cityInput !== prevState.cityInput && this.state.countryInput !== prevState.countryInput) {
+    //a network request may not be necessary if the state (locations user enterd) have not changed
+    if (this.state.cityInput !== prevState.cityInput || this.state.countryInput !== prevState.countryInput) {
       console.log('App componentDidUpdate');
       console.log(this.state.cityInput, prevState.cityInput);
     
@@ -77,7 +132,9 @@ class App extends Component {
           humidity={this.state.humidity}
           condition={this.state.condition}
           wind={this.state.wind}
+          error={this.state.error}
         />
+
       </div>
     );
   }
