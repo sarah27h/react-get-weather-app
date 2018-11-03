@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+/*
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -29,4 +27,42 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* imports */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500');
+
+
+/* start general */
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background: #263746;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+/* start App */
+.App {
+  text-align: center;
+}
+
+
+/* start Titles */
+.logo-app {
+  margin-top: 50px;
+  max-width: 100%;
+  width: 30%;
 }
