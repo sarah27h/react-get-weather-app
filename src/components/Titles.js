@@ -5,8 +5,8 @@ import app_logo from '../images/app_logo.png';
 
 function Titles(props) {
     return(
-        <div>
-            <img src={app_logo} alt="app logo"/>
+        <div className="titles-Wrapper">
+            <img className="logo-app" src={app_logo} alt="app logo"/>
             <p>Get temperature, expections and more...</p>
         </div>
     );

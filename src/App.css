@@ -30,8 +30,14 @@ body {
 
 
 /* start Titles */
-.logo-app {
-  margin-top: 50px;
+.titles-Wrapper .logo-app {
+  margin-top: 35px;
   max-width: 100%;
   width: 30%;
+}
+
+.titles-Wrapper p {
+  margin: 15px 0;
+  color: #ccc;
+  font-size: 15px;
 }
