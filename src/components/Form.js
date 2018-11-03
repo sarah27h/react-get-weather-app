@@ -8,17 +8,29 @@ class Form extends Component {
         e.preventDefault();
         let city = document.getElementsByName("city")[0].value;
         let country = document.getElementsByName("country")[0].value;
+        
         // pass user inputs as actions back to parent component <App />
         this.props.onSubmit(city, country);
     }
 
+    componentDidMount() {
+        console.log('Form componentDidMount');        
+    }
+
     render() {
+        console.log('Form render');
         return(
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" name="city" placeholder="City..."/>
-                <input type="text" name="country" placeholder="country..."/>
-                <button>Get Weather</button>
-            </form>
+            <div className="form-container">
+                <form onSubmit={this.handleSubmit}>
+                    <div className="form-row">
+                        <input className="form-text" type="text" name="city" placeholder="City..."/>
+                    </div>
+                    <div className="form-row">
+                        <input className="form-text" type="text" name="country" placeholder="country..."/>
+                    </div>
+                    <button className="sub-btn" type="submit">Get Weather</button>
+                </form>
+            </div>
         );
     }
 }
