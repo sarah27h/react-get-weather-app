@@ -37,10 +37,13 @@ button {
 
 
 /* start Titles */
+.titles-Wrapper .logo-img {
+  width: 80%;
+  margin: auto;
+}
 .titles-Wrapper .logo-app {
   margin-top: 35px;
   max-width: 100%;
-  width: 60%;
 }
 
 .titles-Wrapper p {
