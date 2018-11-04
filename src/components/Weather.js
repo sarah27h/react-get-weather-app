@@ -19,6 +19,8 @@ function Weather(props) {
 
             }
 
+            { props.icon && <img src={`https://openweathermap.org/img/w/${props.icon}.png`} />}
+
             { props.humidity && <p className="weather-data"><span className="weather-title">Humidity:</span> {props.humidity}</p> }
 
             { props.condition && <p className="weather-data"><span className="weather-title">Conditions:</span> {props.condition}</p> }

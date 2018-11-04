@@ -18,6 +18,7 @@ class App extends Component {
     temperture: undefined,
     humidity: undefined,
     condition: undefined,
+    icon: undefined,
     wind: [undefined,undefined],
     error: undefined
   }
@@ -53,6 +54,7 @@ class App extends Component {
           temperture : response.list[0].main.temp,
           humidity: response.list[0].main.humidity,
           condition: response.list[0].weather[0].description,
+          icon: response.list[0].weather[0].icon,
           wind: [response.list[0].wind.speed, response.list[0].wind.deg],
           error: undefined
         });
@@ -68,6 +70,7 @@ class App extends Component {
             temperture: undefined,
             humidity: undefined,
             condition: undefined,
+            icon: undefined,
             wind: [undefined,undefined]
            });
 
@@ -84,6 +87,7 @@ class App extends Component {
             temperture: undefined,
             humidity: undefined,
             condition: undefined,
+            icon: undefined,
             wind: [undefined,undefined]
           });
           
@@ -101,6 +105,7 @@ class App extends Component {
         temperture: undefined,
         humidity: undefined,
         condition: undefined,
+        icon: undefined,
         wind: [undefined,undefined],
         error : 'Error: something went wrong with network' });
     }
@@ -131,6 +136,7 @@ class App extends Component {
           temperture={this.state.temperture}
           humidity={this.state.humidity}
           condition={this.state.condition}
+          icon={this.state.icon}
           wind={this.state.wind}
           error={this.state.error}
         />
