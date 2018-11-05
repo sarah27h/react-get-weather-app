@@ -33,6 +33,8 @@ button {
 /* start App */
 .App {
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 
@@ -61,6 +63,7 @@ button {
 
 .form-container {
   max-width: 580px;
+  width: 100%;
   padding: 35px;
   margin: auto;
 }
@@ -94,8 +97,9 @@ button {
 
 /* Start Weather */
 .weather-wrapper {
-  text-align: left;
+  width: 100%;
   padding: 18px;
+  text-align: left;
   color: #fff;
 }
 
@@ -117,11 +121,11 @@ button {
 
 .weather-wrapper .vertical-line {
   border-left: 1px solid rgba(179, 179, 179, .3);
-    height: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1px;
-    align-self: center;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1px;
+  align-self: center;
 }
 
 .weather-wrapper .location {
@@ -130,17 +134,24 @@ button {
 }
 
 .weather-wrapper .weather-icon {
-  margin-bottom: 25px;
+  
 }
 
-.weather-wrapper .weather-data {
+.weather-details {
+  width: 100%;
+  padding: 18px;
+  text-align: left;
+  color: #fff;
+}
+
+.weather-details .weather-data {
   margin-bottom: 10px;
   font-size: 17px;
   border-bottom: 1px solid rgba(179, 179, 179, .3);
   padding-bottom: 10px;
 }
 
-.weather-wrapper .weather-title {
+.weather-details .weather-title {
   color: #b3b3b3;
   font-size: 15px;
 }
@@ -166,7 +177,7 @@ button {
     margin: auto;
   }
 
-  .weather-wrapper {
+  .weather-wrapper, .weather-details {
     padding: 18px 50px;
   }
 }

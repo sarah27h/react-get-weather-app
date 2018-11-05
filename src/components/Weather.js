@@ -17,13 +17,8 @@ function Weather(props) {
 
             { props.icon && <img className="weather-icon" src={`https://openweathermap.org/img/w/${props.icon}.png`} />}
 
-            { props.humidity && <p className="weather-data"><span className="weather-title">Humidity:</span> {props.humidity}</p> }
-
-            { props.condition && <p className="weather-data"><span className="weather-title">Conditions:</span> {props.condition}</p> }
-
-            { props.wind[0] && props.wind[1] && <p className="weather-data"><span className="weather-title">Wind:</span> Speed: {props.wind[0]}, Degree: {props.wind[1]}</p> }
-            
             {props.error && <p>{props.error}</p>}
+
         </div>
     );
 }
