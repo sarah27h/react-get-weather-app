@@ -4,6 +4,7 @@ import './App.css';
 import Titles from './components/Titles';
 import Form from './components/Form';
 import Weather from './components/Weather';
+import WeatherDetails from './components/WeatherDetails'
 
 
 const API_KEY = '3b7d8b725e9415824bae9c91fae33399';
@@ -139,6 +140,12 @@ class App extends Component {
           icon={this.state.icon}
           wind={this.state.wind}
           error={this.state.error}
+        />
+
+        <WeatherDetails 
+          humidity={this.state.humidity}
+          condition={this.state.condition}
+          wind={this.state.wind}
         />
 
       </div>
