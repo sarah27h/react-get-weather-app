@@ -67,7 +67,7 @@ button {
 
 .form-container .form-row {
   width: 100%;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
 
 .form-container .form-text {
@@ -103,7 +103,6 @@ button {
   display: flex;
   justify-content: space-around;
   align-items: baseline;
-  margin-bottom: 25px;
   padding: 0 5px;
 }
 
@@ -130,6 +129,10 @@ button {
   font-weight: 700;
 }
 
+.weather-wrapper .weather-icon {
+  margin-bottom: 25px;
+}
+
 .weather-wrapper .weather-data {
   margin-bottom: 10px;
   font-size: 17px;
@@ -140,4 +143,30 @@ button {
 .weather-wrapper .weather-title {
   color: #b3b3b3;
   font-size: 15px;
+}
+
+
+/* media queries*/
+/* for medium screens */
+@media screen and (min-width: 501px)and (max-width: 600px) {
+  .titles-Wrapper p {
+    font-size: 15px;
+  }
+  
+  .form-container {
+    padding: 50px;
+  }
+
+  .form-container .form-row {
+    width: 49%;
+  }
+
+  .form-container .sub-btn {
+    width: 49%;
+    margin: auto;
+  }
+
+  .weather-wrapper {
+    padding: 18px 50px;
+  }
 }

@@ -4,10 +4,6 @@ function Weather(props) {
     return(
         <div className="weather-wrapper">
             {/* add conditional operator for only rendering data if user click submit btn */}
-            
-            { 
-                 
-            }
 
             { 
                 props.city && props.country  && props.temperture && 
@@ -19,7 +15,7 @@ function Weather(props) {
 
             }
 
-            { props.icon && <img src={`https://openweathermap.org/img/w/${props.icon}.png`} />}
+            { props.icon && <img className="weather-icon" src={`https://openweathermap.org/img/w/${props.icon}.png`} />}
 
             { props.humidity && <p className="weather-data"><span className="weather-title">Humidity:</span> {props.humidity}</p> }
 
