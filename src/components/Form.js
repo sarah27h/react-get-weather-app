@@ -21,7 +21,7 @@ class Form extends Component {
         console.log('Form render');
         return(
             <div className="form-container">
-                <form onSubmit={this.handleSubmit}>
+                <form className="form" onSubmit={this.handleSubmit}>
                     <div className="form-row">
                         <input className="form-text" type="text" name="city" placeholder="City..."/>
                     </div>

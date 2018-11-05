@@ -54,6 +54,11 @@ button {
 
 
 /* start Form */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .form-container {
   max-width: 580px;
   padding: 35px;
@@ -61,6 +66,7 @@ button {
 }
 
 .form-container .form-row {
+  width: 100%;
   margin-bottom: 20px;
 }
 
