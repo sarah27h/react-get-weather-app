@@ -74,7 +74,8 @@ class App extends Component {
             humidity: undefined,
             condition: undefined,
             icon: undefined,
-            wind: [undefined,undefined]
+            wind: [undefined,undefined],
+            displayComponent: true
            });
 
         } else {
@@ -91,7 +92,8 @@ class App extends Component {
             humidity: undefined,
             condition: undefined,
             icon: undefined,
-            wind: [undefined,undefined]
+            wind: [undefined,undefined],
+            displayComponent: true
           });
           
         }
@@ -110,6 +112,7 @@ class App extends Component {
         condition: undefined,
         icon: undefined,
         wind: [undefined,undefined],
+        displayComponent: true,
         error : 'Error: something went wrong with network' });
     }
   
