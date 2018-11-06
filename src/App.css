@@ -104,6 +104,7 @@ button {
   padding: 18px;
   text-align: left;
   color: #fff;
+  display: none;
 }
 
 .weather-wrapper .main-data {
@@ -145,6 +146,7 @@ button {
   padding: 18px;
   text-align: left;
   color: #fff;
+  display: none;
 }
 
 .weather-details .weather-data {
@@ -157,6 +159,14 @@ button {
 .weather-details .weather-title {
   color: #b3b3b3;
   font-size: 15px;
+}
+
+
+/* weather-wrapper and .weather-details display none by default  */
+/* .display-component used to show them again after user click btn */
+.weather-wrapper.display-component,
+.weather-details.display-component {
+  display: inline-block;
 }
 
 

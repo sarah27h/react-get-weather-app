@@ -21,7 +21,8 @@ class App extends Component {
     condition: undefined,
     icon: undefined,
     wind: [undefined,undefined],
-    error: undefined
+    error: undefined,
+    displayComponent: false
   }
 
   //to get location from <Form /> (user inputs)
@@ -57,7 +58,8 @@ class App extends Component {
           condition: response.list[0].weather[0].description,
           icon: response.list[0].weather[0].icon,
           wind: [response.list[0].wind.speed, response.list[0].wind.deg],
-          error: undefined
+          error: undefined,
+          displayComponent: true
         });
         // handle case: user enter incorrect location
         // simulate case: enter wrong locations
@@ -140,12 +142,14 @@ class App extends Component {
           icon={this.state.icon}
           wind={this.state.wind}
           error={this.state.error}
+          displayComponent={this.state.displayComponent}
         />
 
         <WeatherDetails 
           humidity={this.state.humidity}
           condition={this.state.condition}
           wind={this.state.wind}
+          displayComponent={this.state.displayComponent}
         />
 
       </div>
