@@ -144,6 +144,7 @@ button {
 .weather-details {
   width: 100%;
   padding: 18px;
+  margin-left: auto;
   text-align: left;
   color: #fff;
   display: none;
@@ -191,7 +192,7 @@ button {
   }
 
   .weather-wrapper, .weather-details {
-    padding: 18px 50px;
+    padding: 18px 35px;
   }
 }
 
@@ -205,13 +206,13 @@ button {
   }
 
   .weather-wrapper {
-    width: 40%;
+    width: 50%;
     margin-left: auto;
     padding: 35px;
   }
   
   .weather-details {
-    padding: 18px 50px;
+    padding: 18px 35px;
   }
 
   .weather-wrapper .main-data {
@@ -232,7 +233,7 @@ button {
   }
 
   .weather-details {
-    width: 60%;
+    width: 50%;
   }
   
 }
@@ -258,7 +259,7 @@ button {
   }
 
   .weather-details {
-    width: 40%;
+    width: 50%;
   }
 
 }
