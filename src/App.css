@@ -39,6 +39,9 @@ button {
 
 
 /* start Titles */
+.titles-Wrapper {
+  margin: auto;
+}
 .titles-Wrapper .logo-img {
   width: 80%;
   margin: auto;
@@ -180,4 +183,72 @@ button {
   .weather-wrapper, .weather-details {
     padding: 18px 50px;
   }
+}
+
+@media screen and (min-width: 601px) {
+  .titles-Wrapper .logo-img {
+    width: 45%;
+  }
+  
+  .form-container {
+    width: 50%;
+  }
+
+  .weather-wrapper {
+    width: 40%;
+    margin-left: auto;
+    padding: 35px;
+  }
+  
+  .weather-details {
+    padding: 18px 50px;
+  }
+
+  .weather-wrapper .main-data {
+    flex-wrap: wrap;
+  }
+
+  .weather-wrapper .temp {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .weather-wrapper .vertical-line {
+    display: none;
+  }
+
+  .weather-wrapper .location {
+    width: 100%;
+  }
+
+  .weather-details {
+    width: 60%;
+  }
+  
+}
+
+
+/* for large screens */
+@media screen and (min-width: 751px) {
+
+  .weather-wrapper {
+      width: 50%;
+  }
+
+  .weather-wrapper .temp {
+    width: 35%
+  }
+
+  .weather-wrapper .vertical-line {
+    display: inline-block;
+  }
+
+  .weather-wrapper .location {
+    width: 40%;
+  }
+
+  .weather-details {
+    width: 40%;
+  }
+
 }
