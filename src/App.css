@@ -164,6 +164,15 @@ button {
   font-size: 15px;
 }
 
+.weather-wrapper .error {
+  padding: 15px;
+  background: #ccc;
+  border-radius: 4px;
+  color: #e60000;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  text-align: center;
+}
 
 /* weather-wrapper and .weather-details display none by default  */
 /* .display-component used to show them again after user click btn */

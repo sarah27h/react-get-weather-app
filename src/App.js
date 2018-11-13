@@ -67,7 +67,7 @@ class App extends Component {
         // simulate case: enter wrong locations
        } else if (response.cod === "404") {
           this.setState({
-            error : `${response.message}, please check location inputs again`,
+            error : `! ${response.message}, please check location inputs again`,
             cityInput: undefined,
             countryInput: undefined,
             city: undefined,
@@ -85,7 +85,7 @@ class App extends Component {
         // if (response.cod === "401")
         // simulate case: delete from API key
           this.setState({
-            error : response.message,
+            error : `! ${response.message} `,
             cityInput: undefined,
             countryInput: undefined,
             city: undefined,
@@ -115,7 +115,7 @@ class App extends Component {
         icon: undefined,
         wind: [undefined,undefined],
         displayComponent: true,
-        error : 'Error: something went wrong with network' });
+        error : `! Error: something went wrong with network` });
     }
   
   } 
