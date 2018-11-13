@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DataList from './DataList'
 
 class Form extends Component {
 
@@ -6,11 +7,16 @@ class Form extends Component {
     handleSubmit = (e) => {
         // to prevent page refresh
         e.preventDefault();
-        let city = document.getElementsByName("city")[0].value;
-        let country = document.getElementsByName("country")[0].value;
-        
+        // get user inputs for city & country 
+        let city = document.getElementsByName('city')[0].value;
+
+        // In a datalist you do not need the .selected command.
+        // input field of datalist holds the option that is selected in the datalist
+        let country = document.getElementById('mycountries').value;
+        let key = this.props.countryList.filter((option, index) => {return option.value === country});
+
         // pass user inputs as actions back to parent component <App />
-        this.props.onSubmit(city, country);
+        this.props.onSubmit(city, key[0].countryCode);
     }
 
     componentDidMount() {
@@ -25,9 +31,9 @@ class Form extends Component {
                     <div className="form-row">
                         <input className="form-text" type="text" name="city" placeholder="City..."/>
                     </div>
-                    <div className="form-row">
-                        <input className="form-text" type="text" name="country" placeholder="country..."/>
-                    </div>
+                    <DataList 
+                        countryList={this.props.countryList}
+                    />
                     <button className="sub-btn" type="submit">Get Weather</button>
                 </form>
             </div>
