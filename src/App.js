@@ -5,6 +5,7 @@ import Titles from './components/Titles';
 import Form from './components/Form';
 import Weather from './components/Weather';
 import WeatherDetails from './components/WeatherDetails'
+import Footer from './components/Footer'
 import {COUNTRIES_OPTIONS} from './data/ISO_CountryList'
 
 const API_KEY = '3b7d8b725e9415824bae9c91fae33399';
@@ -166,6 +167,8 @@ class App extends Component {
           wind={this.state.wind}
           displayComponent={this.state.displayComponent}
         />
+
+        <Footer />
 
       </div>
     );
