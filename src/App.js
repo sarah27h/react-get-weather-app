@@ -22,7 +22,8 @@ class App extends Component {
     icon: undefined,
     wind: [undefined,undefined],
     error: undefined,
-    displayComponent: false
+    displayComponent: false,
+    countryList: []
   }
 
   //to get location from <Form /> (user inputs)
@@ -118,6 +119,12 @@ class App extends Component {
   
   } 
 
+  componentDidMount() {
+    console.log('App  componentDidMount')
+    this.setState({ countryList : COUNTRIES_OPTIONS }, 
+      () => console.log(this.state.countryList));
+  }
+
   // adding prevProps parameter corrected the multiple call issue
   componentDidUpdate(prevProps, prevState) {
     //a network request may not be necessary if the state (locations user enterd) have not changed
@@ -128,16 +135,19 @@ class App extends Component {
       this.fetchWeather(this.state.cityInput, this.state.countryInput);
     }
   }
+  
 
   render() {
-    console.log(COUNTRIES_OPTIONS);
 
     console.log('App render');
     return (
       <div className="App">
       
         <Titles />
-        <Form onSubmit={this.getLocations} />
+        <Form 
+          onSubmit={this.getLocations}
+          countryList={this.state.countryList}
+        />
         <Weather 
           city={this.state.city}
           country={this.state.country}
