@@ -53,10 +53,11 @@ button {
   max-width: 100%;
 }
 
-.titles-Wrapper p {
+.titles-Wrapper h1 {
   margin: 15px 0 0;
   color: #ccc;
   font-size: 13px;
+  font-weight: 400;
 }
 
 
@@ -189,7 +190,7 @@ button {
   text-align: center;
   margin: auto;
   border-top: 1px solid #ccc;
-  color: #8c8c8c;
+  color: #9d9d9d;
   font-size: 12px;
 }
 
@@ -201,7 +202,7 @@ button {
 /* media queries*/
 /* for medium screens */
 @media screen and (min-width: 501px)and (max-width: 600px) {
-  .titles-Wrapper p {
+  .titles-Wrapper h1 {
     font-size: 15px;
   }
   
