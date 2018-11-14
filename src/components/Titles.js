@@ -9,7 +9,7 @@ function Titles(props) {
             <div className="logo-img">
                 <img className="logo-app" src={app_logo} alt="get weather app logo"/>
             </div>
-            <p>Get temperature, expections and more...</p>
+            <h1>Get temperature, expections and more...</h1>
         </header>
     );
 }
