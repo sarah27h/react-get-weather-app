@@ -14,7 +14,13 @@ class DataList extends Component {
                 <label hidden htmlFor="countries">Choose a country</label>
 
                 {/* input field of datalist holds the option that is selected in the datalist */}
-                <input className="form-text" list="countries" id="mycountries" name="mycountries" placeholder="Country..."/>
+                <input 
+                    aria-label="Search by country name"
+                    placeholder="Start typing country"
+                    className="form-text" 
+                    list="countries" 
+                    id="mycountries" 
+                    name="mycountries" />
                 <datalist id="countries">
                     {this.props.countryList.map((option, index) => {return <option name="countryOption" key={index} value={option.value}/>})}
                 </datalist>

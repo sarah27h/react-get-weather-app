@@ -29,7 +29,11 @@ class Form extends Component {
             <section className="form-container">
                 <form className="form" onSubmit={this.handleSubmit}>
                     <div className="form-row">
-                        <input className="form-text" type="text" name="city" placeholder="City..."/>
+                        <input 
+                        aria-label="Search by city name"
+                        placeholder="Start typing city" 
+                        className="form-text" 
+                        type="text" name="city" />
                     </div>
                     <DataList 
                         countryList={this.props.countryList}
