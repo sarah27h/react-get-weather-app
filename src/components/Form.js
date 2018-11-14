@@ -26,7 +26,7 @@ class Form extends Component {
     render() {
         console.log('Form render');
         return(
-            <div className="form-container">
+            <section className="form-container">
                 <form className="form" onSubmit={this.handleSubmit}>
                     <div className="form-row">
                         <input className="form-text" type="text" name="city" placeholder="City..."/>
@@ -36,7 +36,7 @@ class Form extends Component {
                     />
                     <button className="sub-btn" type="submit">Get Weather</button>
                 </form>
-            </div>
+            </section>
         );
     }
 }

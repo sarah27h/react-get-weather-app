@@ -6,7 +6,7 @@ function Weather(props) {
     /* if displayComponent === false component will be not displayed */
     if (!props.displayComponent) {
         return(
-            <div className="weather-wrapper">
+            <section className="weather-wrapper">
                 {/* add conditional operator for only rendering data if user click submit btn */}
     
                 { 
@@ -23,12 +23,12 @@ function Weather(props) {
     
                 {props.error && <p className="error">{props.error}</p>}
     
-            </div>
+            </section>
         );
     /* if displayComponent === true component will be displayed */
     } else {
         return(
-            <div className="weather-wrapper display-component">
+            <section className="weather-wrapper display-component">
                 {/* add conditional operator for only rendering data if user click submit btn */}
     
                 { 
@@ -45,7 +45,7 @@ function Weather(props) {
     
                 {props.error && <p className="error">{props.error}</p>}
     
-            </div>
+            </section>
         );
     
     }

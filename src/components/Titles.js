@@ -5,12 +5,12 @@ import app_logo from '../images/app_logo.png';
 
 function Titles(props) {
     return(
-        <div className="titles-Wrapper">
+        <header className="titles-Wrapper">
             <div className="logo-img">
                 <img className="logo-app" src={app_logo} alt="app logo"/>
             </div>
             <p>Get temperature, expections and more...</p>
-        </div>
+        </header>
     );
 }
 
