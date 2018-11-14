@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer(props) {
     return(
-        <footer className="footer">
+        <footer role="contentinfo" className="footer">
              <p>Copyright © Get Weather - data sources/APIs used <a href="https://openweathermap.org/appid#use"> OpenWeatherMap API</a></p>
         </footer>
     );
