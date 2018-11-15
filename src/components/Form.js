@@ -13,8 +13,14 @@ class Form extends Component {
         // In a datalist you do not need the .selected command.
         // input field of datalist holds the option that is selected in the datalist
         let country = document.getElementById('mycountries').value;
-        let key = this.props.countryList.filter((option, index) => {return option.value === country});
-
+        let key = this.props.countryList.filter((option, index) => 
+            {
+                // captilize country if user write its own choice and don't choose from datalist options
+                // to pass filter methode test 
+                // to handle case TypeError: Cannot read property 'countryCode' of undefined
+                return option.value === country[0].toUpperCase() + (country).substr(1);
+            });
+        console.log(key, country);
         // pass user inputs as actions back to parent component <App />
         this.props.onSubmit(city, key[0].countryCode);
     }
