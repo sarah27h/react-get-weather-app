@@ -16,6 +16,7 @@ class DataList extends Component {
                 {/* input field of datalist holds the option that is selected in the datalist */}
                 <input 
                     aria-label="Search by country name"
+                    aria-required="true"
                     placeholder="Start typing country"
                     className="form-text" 
                     list="countries" 

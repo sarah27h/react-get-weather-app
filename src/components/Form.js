@@ -37,6 +37,7 @@ class Form extends Component {
                     <div className="form-row">
                         <input 
                         aria-label="Search by city name"
+                        aria-required="true"
                         placeholder="Start typing city" 
                         className="form-text" 
                         type="text" name="city"
