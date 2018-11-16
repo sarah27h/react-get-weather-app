@@ -132,7 +132,12 @@ class App extends Component {
     if (this.state.cityInput !== prevState.cityInput || this.state.countryInput !== prevState.countryInput) {
       console.log('App componentDidUpdate');
       console.log(this.state.cityInput, prevState.cityInput);
-    
+
+      // handle case: that blind user enter another incorrect input
+      // to get message read another time
+      if(this.state.error) {
+        this.setState({error : undefined})
+      }
       this.fetchWeather(this.state.cityInput, this.state.countryInput);
     }
   }
