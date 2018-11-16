@@ -21,7 +21,7 @@ function Weather(props) {
     
                 { props.icon && <img className="weather-icon" alt={props.condition} src={`https://openweathermap.org/img/w/${props.icon}.png`} />}
     
-                {props.error && <p className="error">{props.error}</p>}
+                {props.error && <p role="alert" className="error">{props.error}</p>}
     
             </section>
         );
@@ -43,7 +43,7 @@ function Weather(props) {
     
                 { props.icon && <img className="weather-icon" alt={props.condition} src={`https://openweathermap.org/img/w/${props.icon}.png`} />}
     
-                {props.error && <p className="error">{props.error}</p>}
+                {props.error && <p role="alert" className="error">{props.error}</p>}
     
             </section>
         );
