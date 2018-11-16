@@ -39,7 +39,8 @@ class Form extends Component {
                         aria-label="Search by city name"
                         placeholder="Start typing city" 
                         className="form-text" 
-                        type="text" name="city" />
+                        type="text" name="city"
+                        required />
                     </div>
                     <DataList 
                         countryList={this.props.countryList}

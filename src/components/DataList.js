@@ -20,7 +20,8 @@ class DataList extends Component {
                     className="form-text" 
                     list="countries" 
                     id="mycountries" 
-                    name="mycountries" />
+                    name="mycountries"
+                    required />
                 <datalist id="countries">
                     {this.props.countryList.map((option, index) => {return <option name="countryOption" key={index} value={option.value}/>})}
                 </datalist>
