@@ -23,17 +23,36 @@ class App extends Component {
     icon: undefined,
     wind: [undefined,undefined],
     error: undefined,
+    incorrctCountryNameError: undefined,
     displayComponent: false,
     countryList: []
   }
 
   //to get location from <Form /> (user inputs)
-  getLocations = (city, country) => {
-    // update location state due to user inputs
-    this.setState({
-      cityInput: city, countryInput: country
-    })
-    
+  getLocations = (city, country, countryNameError) => {
+    //handle case: if user enter correct country value
+    if (country) {
+      // update location state due to user inputs
+      this.setState({
+        cityInput: city, countryInput: country
+      });
+    //handle case: if user enter incorrect country value
+    //UX: add error message
+    } else {
+      console.log(':(')
+      this.setState({
+        incorrctCountryNameError: countryNameError,
+        displayComponent: true,
+        error: undefined,
+        cityInput: city,
+        countryInput: country,
+        temperture: undefined,
+        humidity: undefined,
+        condition: undefined,
+        icon: undefined,
+        wind: [undefined,undefined],
+      })
+    }
   }
   
   // use - async await - approche to fetch data from openweathermap API
@@ -61,13 +80,16 @@ class App extends Component {
           icon: response.list[0].weather[0].icon,
           wind: [response.list[0].wind.speed, response.list[0].wind.deg],
           error: undefined,
+          incorrctCountryNameError: undefined,
           displayComponent: true
         });
         // handle case: user enter incorrect location
         // simulate case: enter wrong locations
+        //UX: add error message
        } else if (response.cod === "404") {
           this.setState({
-            error : `! ${response.message}, please check location inputs again`,
+            error : `!Error: ${response.message}, please check location inputs again`,
+            incorrctCountryNameError: undefined,
             cityInput: undefined,
             countryInput: undefined,
             city: undefined,
@@ -84,8 +106,10 @@ class App extends Component {
         // handle case: if invalid API openweathermap key (Unauthorized error)
         // if (response.cod === "401")
         // simulate case: delete from API key
+        //UX: add error message
           this.setState({
-            error : `! ${response.message} `,
+            error : `!Error: ${response.message} `,
+            incorrctCountryNameError: undefined,
             cityInput: undefined,
             countryInput: undefined,
             city: undefined,
@@ -103,6 +127,7 @@ class App extends Component {
     //handle case: if fetch request fails due to network issues or fetched url incorrect
     // User is offline, DNS troubles, network errors
     // simulate case: disconnect internet or delete anything from fetched url
+    //UX: add error message
     } catch (error) {
       this.setState({
         cityInput: undefined,
@@ -115,7 +140,9 @@ class App extends Component {
         icon: undefined,
         wind: [undefined,undefined],
         displayComponent: true,
-        error : `! Error: something went wrong with network` });
+        error : `!Error: something went wrong with network`,
+        incorrctCountryNameError: undefined
+      });
     }
   
   } 
@@ -128,17 +155,22 @@ class App extends Component {
 
   // adding prevProps parameter corrected the multiple call issue
   componentDidUpdate(prevProps, prevState) {
+    console.log('App componentDidUpdate');
+    //check value countryInput !== undefined to make network request
     //a network request may not be necessary if the state (locations user enterd) have not changed
-    if (this.state.cityInput !== prevState.cityInput || this.state.countryInput !== prevState.countryInput) {
-      console.log('App componentDidUpdate');
+    if ((this.state.cityInput !== prevState.cityInput || this.state.countryInput !== prevState.countryInput) && this.state.countryInput !== undefined) {
+      
       console.log(this.state.cityInput, prevState.cityInput);
-
+      console.log(this.state.countryInput, prevState.countryInput);
+      
       // handle case: that blind user enter another incorrect input
-      // to get message read another time
+      // A11y: to get message read another time
       if(this.state.error) {
-        this.setState({error : undefined})
+        this.setState({error : undefined});
       }
+
       this.fetchWeather(this.state.cityInput, this.state.countryInput);
+      
     }
   }
   
@@ -163,6 +195,7 @@ class App extends Component {
           icon={this.state.icon}
           wind={this.state.wind}
           error={this.state.error}
+          incorrctCountryNameError={this.state.incorrctCountryNameError}
           displayComponent={this.state.displayComponent}
         />
 

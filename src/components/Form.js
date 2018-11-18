@@ -21,8 +21,18 @@ class Form extends Component {
                 return option.value === country[0].toUpperCase() + (country).substr(1);
             });
         console.log(key, country);
-        // pass user inputs as actions back to parent component <App />
-        this.props.onSubmit(city, key[0].countryCode);
+
+        //handle case : if user enter correct country value
+        if(key.length > 0) {
+            console.log('hi')
+            // pass user inputs as actions back to parent component <App />
+            this.props.onSubmit(city, key[0].countryCode, undefined);
+        //handle case app craches: if user enter incorrect country value
+        //UX: add error message
+        } else {
+            // pass user inputs as actions back to parent component <App />
+            this.props.onSubmit(city, undefined, '!Error: check country name again');
+        }
     }
 
     componentDidMount() {
