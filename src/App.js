@@ -51,8 +51,20 @@ class App extends Component {
         condition: undefined,
         icon: undefined,
         wind: [undefined,undefined],
-      })
+      });
     }
+    
+    // handle case: that blind user enter another incorrect country input
+    // A11y: to get message read another time
+    this.delayState();
+  }
+
+  // to delay hiding incorrctCountryNameError
+  // A11y: to get message read another time 
+  delayState= function() {
+    setTimeout(() => {
+      this.setState({incorrctCountryNameError: undefined});
+    }, 3000);
   }
   
   // use - async await - approche to fetch data from openweathermap API
@@ -155,7 +167,9 @@ class App extends Component {
 
   // adding prevProps parameter corrected the multiple call issue
   componentDidUpdate(prevProps, prevState) {
-    console.log('App componentDidUpdate');
+      
+    
+    console.log('App componentDidUpdate', this.state.incorrctCountryNameError, this.state.displayComponent);
     //check value countryInput !== undefined to make network request
     //a network request may not be necessary if the state (locations user enterd) have not changed
     if ((this.state.cityInput !== prevState.cityInput || this.state.countryInput !== prevState.countryInput) && this.state.countryInput !== undefined) {
@@ -170,8 +184,16 @@ class App extends Component {
       }
 
       this.fetchWeather(this.state.cityInput, this.state.countryInput);
-      
+     
     }
+    // else if ((this.state.cityInput !== prevState.cityInput || this.state.countryInput !== prevState.countryInput) && this.state.countryInput === undefined) {
+    //   if(!this.state.displayComponent) {
+    //     this.setState({displayComponent: true});
+    //   } else {
+    //     this.setState({displayComponent: false});
+    //   }
+  // }
+      
   }
   
 
