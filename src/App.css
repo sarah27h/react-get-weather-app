@@ -80,8 +80,8 @@ button {
 }
 
 .form-container .form-text {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: 95%;
   height: 45px;
   padding: 0 25px;
   border-radius: 25px 25px;
@@ -89,8 +89,15 @@ button {
   font-size: 16px;
 }
 
+.form-container .form-row .required-style {
+  display: inline-block;
+  color: #ffd42a;
+  font-size: 17px;
+  padding-right: 4px;
+}
+
 .form-container .sub-btn {
-  width: 100%;
+  width: 95%;
   height: 45px;
   padding: 0 25px;
   border-radius: 25px 25px;
@@ -98,6 +105,7 @@ button {
   background: #ffd42a;
   font-weight: 700;
   font-size: 16px;
+  margin-left: 10px;
 }
 
 

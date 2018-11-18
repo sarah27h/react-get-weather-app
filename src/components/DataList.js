@@ -12,7 +12,7 @@ class DataList extends Component {
         return(
             <div className="form-row">
                 <label hidden htmlFor="countries">Choose a country</label>
-
+                <span className="required-style">* </span>
                 {/* input field of datalist holds the option that is selected in the datalist */}
                 <input 
                     aria-label="Search by country name"

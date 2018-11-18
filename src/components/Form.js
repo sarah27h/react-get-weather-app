@@ -45,6 +45,7 @@ class Form extends Component {
             <section className="form-container">
                 <form className="form" onSubmit={this.handleSubmit}>
                     <div className="form-row">
+                    <span className="required-style">* </span>
                         <input 
                         aria-label="Search by city name"
                         aria-required="true"
