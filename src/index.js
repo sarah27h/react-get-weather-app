@@ -2,6 +2,9 @@
 // https://reactjs.org/docs/javascript-environment-requirements.html
 import 'core-js/library/es6/map';
 
+//React also depends on requestAnimationFrame (even in test environments) add raf polyfill
+import 'raf/polyfill';
+
 // react polyfill to get async/await and fetch to work for IE browsers
 import "babel-polyfill";
 import "isomorphic-fetch";
