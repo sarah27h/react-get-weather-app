@@ -1,3 +1,7 @@
+//add core.js to support map array method for old browsers
+// https://reactjs.org/docs/javascript-environment-requirements.html
+import 'core-js/library/es6/map';
+
 // react polyfill to get async/await and fetch to work for IE browsers
 import "babel-polyfill";
 import "isomorphic-fetch";
