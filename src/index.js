@@ -1,3 +1,7 @@
+// react polyfill to get async/await and fetch to work for IE browsers
+import "babel-polyfill";
+import "isomorphic-fetch";
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
