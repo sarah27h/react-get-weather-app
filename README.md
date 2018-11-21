@@ -33,7 +33,7 @@ This project is a single page application from scratch to work as an interactive
     - `cd` to your project directory
     - install `yarn build`
     - to serve with static Server
-    - `serve -s build
+    - `serve -s build`
     - Local host at http://localhost:5000
 
 
