@@ -3,11 +3,11 @@ import './App.css';
 import Titles from './components/Titles';
 import Form from './components/Form';
 import Weather from './components/Weather';
-import WeatherDetails from './components/WeatherDetails'
-import Footer from './components/Footer'
-import {COUNTRIES_OPTIONS} from './data/ISO_CountryList'
+import WeatherDetails from './components/WeatherDetails';
+import Footer from './components/Footer';
+import {COUNTRIES_OPTIONS} from './data/ISO_CountryList';
 
-const API_KEY = '3b7d8b725e9415824bae9c91fae33399';
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 class App extends Component {
 
@@ -197,7 +197,6 @@ class App extends Component {
   
 
   render() {
-
     console.log('App render');
     return (
       <div className="App">
